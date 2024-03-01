@@ -11191,12 +11191,6 @@
 });
 
 // MY SCRIPT.JS
-// FOOTER CONTENT --------------------------------------
-const yearNow = new Date().getFullYear();
-$(".footer").append(
-    yearNow + ' &copy; Design by <b class="hati">&hearts;</b> Nelayan Kode'
-);
-
 var resizer = document.querySelector(".resizer"),
     sidebar = document.querySelector(".content-left"),
     wcnt = $(".content").width();
@@ -11283,64 +11277,6 @@ $(document).ready(function () {
     changeCode(editor);
     changeCode(editor2);
     changeCode(editor3);
-});
-
-// DARK MODE
-// localStorage.clear();
-var night = localStorage.getItem("night") || 0;
-
-if (night == 0) {
-    darkDisable();
-} else {
-    darkEnable();
-}
-
-$(".themes").click(function () {
-    $("#output").contents().find("head link, style").remove();
-    var $head = $("#output").contents().find("head");
-    if (night == 0) {
-        darkEnable();
-        $head.append(
-            "<style>body{color:#fefefe;}" + $("#c-css").val() + "</style>"
-        );
-    } else {
-        darkDisable();
-        $head.append(
-            "<style>body{color:#333;}" + $("#c-css").val() + "</style>"
-        );
-    }
-});
-
-function darkEnable() {
-    $(".dark").addClass("night");
-    $(".themes").removeClass("bx-sun");
-    $(".themes").addClass("bx-moon");
-    $(".code-h").css("border-color", "var(--dm-border)");
-    night = 1;
-    localStorage.setItem("night", "1");
-}
-
-function darkDisable() {
-    $(".dark").removeClass("night");
-    $(".themes").removeClass("bx-moon");
-    $(".themes").addClass("bx-sun");
-    $(".code-h").css("border-color", "var(--border)");
-    localStorage.setItem("night", "0");
-    night = 0;
-}
-
-//SHOW MENU NAVIGASI
-var showNav = 0;
-$(".fa-nav").click(function () {
-    if (showNav == 0) {
-        $(".content-left").css("margin-left", "200px");
-        $(".menu-nav").css("left", "0");
-        showNav = 1;
-    } else {
-        $(".content-left").css("margin-left", "0");
-        $(".menu-nav").css("left", "-210px");
-        showNav = 0;
-    }
 });
 
 // HIDDEN CODE ----------------------------------------
